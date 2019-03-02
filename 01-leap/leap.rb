@@ -1,3 +1,5 @@
+require 'awesome_print'
+
 def leap_year?(year)
   if year % 400 == 0 
   return true
@@ -7,3 +9,5 @@ def leap_year?(year)
     return false
   end
 end
+
+ap leap_year?(1900)
