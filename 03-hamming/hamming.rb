@@ -11,6 +11,4 @@ class Hamming
     end
     return hamming_distance
   end
-
-
 end
