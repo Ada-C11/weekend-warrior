@@ -1,14 +1,8 @@
-class WordCount
-  def initialize(word)
-    @word = hashed_word(word)
-  end
 
-  def words(word)
-    words_array = word.split(" ")
+  def words(words)
+    words_array = words.split(" ")
     hashify = Hash.new(0)
 
-    words_array.each { |word| result[word] += 1}
+    words_array.each { |word| hashify[word] += 1 }
     return hashify
   end
-
-end
