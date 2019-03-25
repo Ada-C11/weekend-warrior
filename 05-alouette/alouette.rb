@@ -13,15 +13,15 @@ class Alouette
   ]
 
   def self.lines_for_verse(verse_num)
-    return @lyrics[0..verse_num]
+    return @lyrics[0..verse_num].reverse
   end
 
   def self.verse(verse_num)
-    current_word = lines_for_verse(verse_num).last[3..-2]
+    current_word = lines_for_verse(verse_num).first[3..-2]
     verse_lines = lines_for_verse(verse_num)
-    verse = "Je te plumerai #{current_word}\nJe te plumerai #{current_word}"
+    verse = "Je te plumerai #{current_word}.\nJe te plumerai #{current_word}."
 
-    verse_lines.reverse.each do |phrase|
+    verse_lines.each do |phrase|
       2.times { verse += "\n" + phrase }
     end
 
@@ -38,7 +38,7 @@ class Alouette
       i += 1
     end
 
-   return complete
+   return complete.strip!
   end
 end
 
