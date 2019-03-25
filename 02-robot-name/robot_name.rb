@@ -5,19 +5,18 @@ class Robot
   attr_reader :name
 
   def initialize
-    letters = ("A".."Z").to_a.sample(2) 
-    numbers = (0..9).to_a.sample(3)
-    @name = (letters + numbers).join 
+    @name = ("A".."Z").to_a.sample(2).join + rand(0..999).to_s.rjust(3, "0")
   end
 
   def reset
-    letters = ("A".."Z").to_a.sample(2) 
-    numbers = (0..9).to_a.sample(3)
-    @name = (letters + numbers).join 
-    return @name 
+    initialize
   end
 end
 
+kate = Robot.new
 
+puts kate.name
+kate.reset
+puts kate.name
 
 
