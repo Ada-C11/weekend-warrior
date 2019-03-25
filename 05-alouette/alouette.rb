@@ -1,3 +1,5 @@
+require "pry"
+
 class Alouette
   @lyrics = [
     "Et la tête!",
@@ -7,7 +9,7 @@ class Alouette
     "Et les ailes!",
     "Et les pattes!",
     "Et la queue!",
-    "Et le dos!"
+    "Et le dos!",
   ]
 
   def self.lines_for_verse(verse_num)
@@ -15,19 +17,28 @@ class Alouette
   end
 
   def self.verse(verse_num)
-    current_word = lines_for_verse(verse_num)[3..-2]
-    current_stanza = lines_for_verse(verse_num)
+    current_word = lines_for_verse(verse_num).last[3..-2]
+    verse_lines = lines_for_verse(verse_num)
     verse = "Je te plumerai #{current_word}\nJe te plumerai #{current_word}"
 
-    return verse += current_stanza.to_s
+    verse_lines.reverse.each do |phrase|
+      2.times { verse += "\n" + phrase }
+    end
+
+    last_refrain = "\nAlouette!\nAlouette!\nA-a-a-ah \n \n"
+    return verse + last_refrain
   end
 
   def self.sing
     refrain = "Alouette, gentille alouette, \nAlouette, je te plumerai.\n \n"
-    last_refrain = "Alouette!\nAlouette\nA-a-a-ah \n \n"
+    complete = refrain
+    i = 0
+    @lyrics.length.times do |i|
+      complete += verse(i) + refrain
+      i += 1
+    end
 
-    puts verse(3)
-
+   return complete
   end
 end
 
