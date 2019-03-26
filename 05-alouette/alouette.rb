@@ -30,13 +30,14 @@ class Alouette
   end
 
   def self.sing
-    refrain = "Alouette, gentille alouette, \nAlouette, je te plumerai.\n \n"
+    refrain = "Alouette, gentille alouette,\nAlouette, je te plumerai.\n\n"
     complete = refrain
     i = 0
-    @lyrics.length.times do |i|
+    8.times do |i|
       complete += verse(i) + refrain
       i += 1
     end
+    
 
    return complete.strip!
   end
