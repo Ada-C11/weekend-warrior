@@ -42,5 +42,3 @@ class Alouette
    return complete.strip!
   end
 end
-
-puts Alouette.verse(2)
