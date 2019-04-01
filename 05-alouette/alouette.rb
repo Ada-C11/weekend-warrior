@@ -34,11 +34,10 @@ class Alouette
     complete = transitional_refrain
     i = 0
     8.times do |i|
-      complete += verse(i) + "\n\n"+ transitional_refrain
+      complete += verse(i) + "\n\n" + transitional_refrain
       i += 1
     end
-    
 
-   return complete.strip!
+    return complete.strip!
   end
 end
