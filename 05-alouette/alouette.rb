@@ -25,16 +25,16 @@ class Alouette
       2.times { verse += "\n" + phrase }
     end
 
-    last_refrain = "\nAlouette!\nAlouette!\nA-a-a-ah \n \n"
+    last_refrain = "\nAlouette!\nAlouette!\nA-a-a-ah"
     return verse + last_refrain
   end
 
   def self.sing
-    refrain = "Alouette, gentille alouette,\nAlouette, je te plumerai.\n\n"
-    complete = refrain
+    transitional_refrain = "Alouette, gentille alouette,\nAlouette, je te plumerai.\n\n"
+    complete = transitional_refrain
     i = 0
     8.times do |i|
-      complete += verse(i) + refrain
+      complete += verse(i) + "\n\n"+ transitional_refrain
       i += 1
     end
     
@@ -43,4 +43,4 @@ class Alouette
   end
 end
 
-puts Alouette.sing
+puts Alouette.verse(2)
