@@ -7,8 +7,6 @@ class Complement
   attr_reader :of_dna, :of_rna
 
   def self.of_dna(dna_string)
-    #split string in order to evaluate
-
     rna_complement = ""
 
     dna_string.chars.each do |c|
